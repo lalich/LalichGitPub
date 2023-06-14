@@ -7,25 +7,20 @@
 const express = require("express") 
 const app = express()
 const PORT = (2500)
-
+const drinks = require('./models/drinks.js')
 
 
 // console.log(app) // check one 2....
 
-
 app.get('/drinks', (req,res) => {
-    res.render('index.ejs')
+    res.render('index.ejs', {drinks: drinks, capitalizeFirstLetter: capitalizeFirstLetter})
 })
 
-
-
-
-
-
-
-
+function capitalizeFirstLetter(string){
+    return string.charAt(0).toUpperCase() + string.slice(1)}
 
 
 app.listen(PORT, () => {
     console.log("The end is nearrrrrr, buy moarrrrr!")
 })
+
